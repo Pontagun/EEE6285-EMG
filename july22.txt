@@ -1,0 +1,183 @@
+iemg = sum(abs(A))
+
+iemg =
+
+   2.2746e+04
+
+MSEA = (sum(A .* A))(length(A)
+ MSEA = (sum(A .* A))(length(A)
+                     |
+{Error: Unbalanced or unexpected parenthesis or
+bracket.
+} 
+MSEA = (sum(A .* A))(length(A))
+ MSEA = (sum(A .* A))(length(A))
+                     |
+{Error: Unbalanced or unexpected parenthesis or
+bracket.
+} 
+MSEA = (sum(A .* A))/(length(A))
+
+MSEA =
+
+   59.0991
+
+RMS = sqrt(MSEA)
+
+RMS =
+
+    7.6876
+
+iemg = sum(abs(A))
+
+iemg =
+
+   2.2746e+04
+
+MAVA = iemg / (length(A))
+
+MAVA =
+
+    5.6865
+
+% Computing an estimate of the PSD of the EMG
+[pxx, f] =pwelch(A,500,250,500,1000);
+% visualize periodogram (no dB )
+figure; plot(f, pxx)
+figure; stem(f, pxx)
+% total [power of spectrum
+ttp = sum(pxx)
+
+ttp =
+
+   29.5177
+
+mnp = ttp / (length(pxx))
+
+mnp =
+
+    0.1176
+
+%pkf is the frequence of the highest pxx
+f= [0 ; 50 ; 100; 150; 200; 250; 300; 350; 400; 450; 500];
+pxx = [0.3 ; 0.8; 1.4; 1.6; 1.0; 1.1; 1.3; 2.3; 4.1; 3.0; 0.3];
+
+close all
+figure; plot(f, pxx)
+help find
+ <strong>find</strong>   Find indices of nonzero elements.
+    I = <strong>find</strong>(X) returns the linear indices corresponding to 
+    the nonzero entries of the array X.  X may be a logical expression. 
+    Use IND2SUB(SIZE(X),I) to calculate multiple subscripts from 
+    the linear indices I.
+  
+    I = <strong>find</strong>(X,K) returns at most the first K indices corresponding to 
+    the nonzero entries of the array X.  K must be a positive integer, 
+    but can be of any numeric type.
+ 
+    I = <strong>find</strong>(X,K,'first') is the same as I = <strong>find</strong>(X,K).
+ 
+    I = <strong>find</strong>(X,K,'last') returns at most the last K indices corresponding 
+    to the nonzero entries of the array X.
+ 
+    [I,J] = <strong>find</strong>(X,...) returns the row and column indices instead of
+    linear indices into X. This syntax is especially useful when working
+    with sparse matrices.  If X is an N-dimensional array where N > 2, then
+    J is a linear index over the N-1 trailing dimensions of X.
+ 
+    [I,J,V] = <strong>find</strong>(X,...) also returns a vector V containing the values
+    that correspond to the row and column indices I and J.
+ 
+    Example:
+       A = magic(3)
+       find(A > 5)
+ 
+    finds the linear indices of the 4 entries of the matrix A that are
+    greater than 5.
+ 
+       [rows,cols,vals] = find(speye(5))
+ 
+    finds the row and column indices and nonzero values of the 5-by-5
+    sparse identity matrix.
+ 
+    See also <a href="matlab:help sparse">sparse</a>, <a href="matlab:help ind2sub">ind2sub</a>, <a href="matlab:help relop">relop</a>, <a href="matlab:help nonzeros">nonzeros</a>.
+
+    Overloaded methods:
+       <a href="matlab:help codistributed/find">codistributed/find</a>
+       <a href="matlab:help gpuArray/find">gpuArray/find</a>
+
+    Reference page in Help browser
+       <a href="matlab:doc find">doc find</a>
+
+doc find
+[r,c,v] = find( max(pxx))
+
+r =
+
+     1
+
+
+c =
+
+     1
+
+
+v =
+
+    4.1000
+
+[indx,v] = find( max(pxx))
+
+indx =
+
+     1
+
+
+v =
+
+     1
+
+mxp = max(pxx)
+
+mxp =
+
+    4.1000
+
+[ind, v]= find (pxx == mxp)
+
+ind =
+
+     9
+
+
+v =
+
+     1
+
+% now , using the retrieved index, we can find the 
+% frequency for that same index:
+
+pkf = f(indx)
+
+pkf =
+
+     0
+
+[ind, v]= find (pxx == mxp)
+
+ind =
+
+     9
+
+
+v =
+
+     1
+
+pkf = f(ind)
+
+pkf =
+
+   400
+
+diary off
