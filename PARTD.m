@@ -18,28 +18,28 @@ B2 = B2 - mean(B2);
 B3 = B3 - mean(B3);
 B4 = B4 - mean(B4);
 
-[pxx, f] = pwelch(A, 500, 250, 500, 1000);
+[pxx, f] = nodcpwelch(A, 500, 250, 500, 1000);
 
-iemg_a = mygetiemg(A)
-mav_a = mygetmav(A)
-rms_a = mygetrms(A)
-var_a = mygetvar(A)
+iemg_a = mygetiemg(A);
+mav_a = mygetmav(A);
+rms_a = mygetrms(A);
+var_a = mygetvar(A);
 
-ttp_a = fmygetttp(pxx, f)
-mnp_a = fmygetmnp(pxx, f)
-pkf_a = fmygetpkf(pxx, f)
-mnf_a = fmygetmnf(pxx, f)
-mdf_a = fmygetmdf(pxx, f)
+ttp_a = fmygetttp(pxx, f);
+mnp_a = fmygetmnp(pxx, f);
+pkf_a = fmygetpkf(pxx, f);
+mnf_a = fmygetmnf(pxx, f);
+mdf_a = fmygetmdf(pxx, f);
 
-[pxx, f] = pwelch(B, 500, 250, 500, 1000);
+[pxx, f] = nodcpwelch(B, 500, 250, 500, 1000);
 
-iemg_b = mygetiemg(B)
-mav_b = mygetmav(B)
-rms_b = mygetrms(B)
-var_b = mygetvar(B)
+iemg_b = mygetiemg(B);
+mav_b = mygetmav(B);
+rms_b = mygetrms(B);
+var_b = mygetvar(B);
 
-ttp_b = fmygetttp(pxx, f)
-mnp_b = fmygetmnp(pxx, f)
-pkf_b = fmygetpkf(pxx, f)
-mnf_b = fmygetmnf(pxx, f)
-mdf_b = fmygetmdf(pxx, f)
+ttp_b = fmygetttp(pxx, f);
+mnp_b = fmygetmnp(pxx, f);
+pkf_b = fmygetpkf(pxx, f);
+mnf_b = fmygetmnf(pxx, f);
+mdf_b = fmygetmdf(pxx, f);

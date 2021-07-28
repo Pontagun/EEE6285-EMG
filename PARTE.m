@@ -19,7 +19,7 @@ B3 = B3 - mean(B3);
 B4 = B4 - mean(B4);
 
 %############## 1 ##############
-[pxx, f] = pwelch(A1, 500, 250, 500, 1000);
+[pxx, f] = nodcpwelch(A1, 500, 250, 500, 1000);
 
 a1iemg = mygetiemg(A1);
 a1mav = mygetmav(A1);
@@ -32,7 +32,7 @@ a1pkf = fmygetpkf(pxx, f);
 a1mnf = fmygetmnf(pxx, f);
 a1mdf = fmygetmdf(pxx, f);
 
-[pxx, f] = pwelch(B1, 500, 250, 500, 1000);
+[pxx, f] = nodcpwelch(B1, 500, 250, 500, 1000);
 
 b1iemg = mygetiemg(B1);
 b1mav = mygetmav(B1);
@@ -46,7 +46,7 @@ b1mnf = fmygetmnf(pxx, f);
 b1mdf = fmygetmdf(pxx, f);
 
 %############## 2 ##############
-[pxx, f] = pwelch(A2, 500, 250, 500, 1000);
+[pxx, f] = nodcpwelch(A2, 500, 250, 500, 1000);
 
 a2iemg = mygetiemg(A2);
 a2mav = mygetmav(A2);
@@ -59,7 +59,7 @@ a2pkf = fmygetpkf(pxx, f);
 a2mnf = fmygetmnf(pxx, f);
 a2mdf = fmygetmdf(pxx, f);
 
-[pxx, f] = pwelch(B2, 500, 250, 500, 1000);
+[pxx, f] = nodcpwelch(B2, 500, 250, 500, 1000);
 
 b2iemg = mygetiemg(B2);
 b2mav = mygetmav(B2);
@@ -73,7 +73,7 @@ b2mnf = fmygetmnf(pxx, f);
 b2mdf = fmygetmdf(pxx, f);
 
 %############## 3 ##############
-[pxx, f] = pwelch(A3, 500, 250, 500, 1000);
+[pxx, f] = nodcpwelch(A3, 500, 250, 500, 1000);
 
 a3iemg = mygetiemg(A3);
 a3mav = mygetmav(A3);
@@ -86,7 +86,7 @@ a3pkf = fmygetpkf(pxx, f);
 a3mnf = fmygetmnf(pxx, f);
 a3mdf = fmygetmdf(pxx, f);
 
-[pxx, f] = pwelch(B3, 500, 250, 500, 1000);
+[pxx, f] = nodcpwelch(B3, 500, 250, 500, 1000);
 
 b3iemg = mygetiemg(B3);
 b3mav = mygetmav(B3);
@@ -100,7 +100,7 @@ b3mnf = fmygetmnf(pxx, f);
 b3mdf = fmygetmdf(pxx, f);
 
 %############## 4 ##############
-[pxx, f] = pwelch(A4, 500, 250, 500, 1000);
+[pxx, f] = nodcpwelch(A4, 500, 250, 500, 1000);
 
 a4iemg = mygetiemg(A4);
 a4mav = mygetmav(A4);
@@ -113,7 +113,7 @@ a4pkf = fmygetpkf(pxx, f);
 a4mnf = fmygetmnf(pxx, f);
 a4mdf = fmygetmdf(pxx, f);
 
-[pxx, f] = pwelch(B4, 500, 250, 500, 1000);
+[pxx, f] = nodcpwelch(B4, 500, 250, 500, 1000);
 
 b4iemg = mygetiemg(B4);
 b4mav = mygetmav(B4);
