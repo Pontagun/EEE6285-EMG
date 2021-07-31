@@ -12,6 +12,7 @@ A3 = A3 - mean(A3);
 A4 = A4 - mean(A4);
 
 B = cat(1, B1, B2, B3, B4);
+B = B - mean(B);
 B1 = B1 - mean(B1);
 B2 = B2 - mean(B2);
 B3 = B3 - mean(B3);
@@ -42,11 +43,11 @@ rms_a = mygetrms(A);
 var_a = mygetvar(A);
 
 [pxx, f] = nodcpwelch(A, 200, 100, 200, 1000);
-ttp_a = fmygetttp(pxx, f);
-mnp_a = fmygetmnp(pxx, f);
-pkf_a = fmygetpkf(pxx, f);
-mnf_a = fmygetmnf(pxx, f);
-mdf_a = fmygetmdf(pxx, f);
+ttp_a = mygetttp(pxx, f);
+mnp_a = mygetmnp(pxx, f);
+pkf_a = mygetpkf(pxx, f);
+mnf_a = mygetmnf(pxx, f);
+mdf_a = mygetmdf(pxx, f);
 
 iemg_b = mygetiemg(B);
 mav_b = mygetmav(B);
@@ -54,8 +55,28 @@ rms_b = mygetrms(B);
 var_b = mygetvar(B);
 
 [pxx, f] = nodcpwelch(B, 200, 100, 200, 1000);
-ttp_b = fmygetttp(pxx, f);
-mnp_b = fmygetmnp(pxx, f);
-pkf_b = fmygetpkf(pxx, f);
-mnf_b = fmygetmnf(pxx, f);
-mdf_b = fmygetmdf(pxx, f);
+ttp_b = mygetttp(pxx, f);
+mnp_b = mygetmnp(pxx, f);
+pkf_b = mygetpkf(pxx, f);
+mnf_b = mygetmnf(pxx, f);
+mdf_b = mygetmdf(pxx, f);
+
+iemg_a_b = iemg_a - iemg_b;
+mav_a_b = mav_a - mav_b;
+rms_a_b = rms_a - rms_b;
+var_a_b = var_a - var_b;
+ttp_a_b = ttp_a - ttp_b;
+mnp_a_b = mnp_a - mnp_b;
+pkf_a_b = pkf_a - pkf_b;
+mnf_a_b = mnf_a - mnf_b;
+mdf_a_b = mdf_a - mdf_b;
+
+pc_iemg = iemg_a_b/iemg_a * 100;
+pc_mav = mav_a_b/mav_a * 100;
+pc_rms = rms_a_b/rms_a * 100;
+pc_var = var_a_b/var_a * 100;
+pc_ttp = ttp_a_b/ttp_a * 100;
+pc_mnp = mnp_a_b/mnp_a * 100;
+pc_pkf = pkf_a_b/pkf_a * 100;
+pc_mnf = mnf_a_b/mnf_a * 100;
+pc_mnd = mdf_a_b/mdf_a * 100;
